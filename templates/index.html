@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<form action="{% url 'thanks_page' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Отправить</button>
+</form>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+{% if object_list %}
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Дата</th>
+        <th>Имя</th>
+        <th>Номер телефона</th>
+    </tr>
+{% for object in object_list %}
+    <tr>
+        <th>{{ object.id }}</th>
+        <th>{{ object.order_dt }}</th>
+        <th>{{ object.order_name }}</th>
+        <th>{{ object.order_phone }}</th>
+    </tr>
+{% endfor %}
+</table>
+{% else %}
+Нет данных
+{% endif %}
+</body>
+</html>
