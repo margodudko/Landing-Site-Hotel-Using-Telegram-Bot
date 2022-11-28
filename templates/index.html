@@ -1,55 +1,66 @@
 {% extends 'base.html' %}
 {% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    {% block title %}
-    <title>Title</title>
-    {% endblock %}
-</head>
-<body>
-{% block content %}
-<img src="{% static 'img/1.jpg' %}" height="500">
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<form action="{% url 'thanks_page' %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Отправить</button>
-</form>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-{% if object_list %}
-<table border="1">
-    <tr>
-        <th>Id</th>
-        <th>Дата</th>
-        <th>Имя</th>
-        <th>Номер телефона</th>
-    </tr>
-{% for object in object_list %}
-    <tr>
-        <th>{{ object.id }}</th>
-        <th>{{ object.order_dt }}</th>
-        <th>{{ object.order_name }}</th>
-        <th>{{ object.order_phone }}</th>
-    </tr>
-{% endfor %}
-</table>
-{% else %}
-Нет данных
-{% endif %}
+{% block index %}
+	<!-- карусель -->
+	{% include 'carousel.html' %}
+  	<!-- Карточки -->
+	{% include 'price.html' %}
+  	<!-- Таблица -->
+  	<section>
+  		<div class="container">
+  			<h1 class="text-3">Цены на услуги</h1>
+  			<table class="table table_one">
+			  <thead class="thead-dark">
+			    <tr>
+			      <th scope="col">Услуга</th>
+			      <th scope="col">Старая цена</th>
+			      <th scope="col">Новая цена</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td>Услуга 1 Услуга 1 Услуга 1</td>
+			      <td><del>2000</del></td>
+			      <td>1000</td>
+			    </tr>
+			    <tr>
+			      <td>Услуга 2 Услуга 2 Услуга 2</td>
+			      <td><del>2000</del></td>
+			      <td>1000</td>
+			    </tr>
+			    <tr>
+			      <td>Услуга 3 Услуга 3 Услуга 3</td>
+			      <td><del>2000</del></td>
+			      <td>1000</td>
+			    </tr>
+			  </tbody>
+			</table>
+  		</div>
+  	</section>
+  	<!-- форма -->
+  	<section>
+  		<div class="container class_form">
+  			<h1 class="text-3">Оставь заявку и получи услугу</h1>
+  			<div class="row justify-content-center">
+  			<form action="" method="" style="width: 50%;">
+			  <div class="form-group row">
+			    <label for="inputEmail3" class="col-sm-2 col-form-label">Имя</label><br>
+			      <input type="text" class="form-control" name="name">
+			    <div class="">
+			    </div>
+			  </div>
+			  <div class="form-group row">
+			    <label for="inputEmail3" class="col-sm-2 col-form-label">Телефон</label><br>
+			      <input type="text" class="form-control" name="phone">
+			    <div class="">
+			    </div>
+			  </div>
+			  <div style="float: right;" class="form-group row">
+			      <button type="submit" class="btn btn-success">ОСТАВИТЬ ЗАЯВКУ</button>
+			  </div>
+			</form>
+			</div>
+  		</div>
+  	</section>
 
 {% endblock %}
-</body>
-</html>
