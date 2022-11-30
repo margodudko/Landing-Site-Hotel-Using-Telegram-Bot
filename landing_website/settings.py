@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'telebot',
+    'price',
+    'bootstrap4',
     'cms',
     'crm',
     'django.contrib.admin',

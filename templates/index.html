@@ -5,53 +5,22 @@
 {% include 'carousel.html' %}
   	<!-- Карточки -->
 {% include 'price.html' %}
-  	<!-- Таблица -->
-  	<section>
-  		<div class="container">
-  			<h1 class="text-3">Цены на услуги</h1>
-  			<table class="table table_one">
-			  <thead class="thead-dark">
-			    <tr>
-			      <th scope="col">Услуга</th>
-			      <th scope="col">Старая цена</th>
-			      <th scope="col">Новая цена</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-			    <tr>
-			      <td>Услуга 1 Услуга 1 Услуга 1</td>
-			      <td><del>2000</del></td>
-			      <td>1000</td>
-			    </tr>
-			    <tr>
-			      <td>Услуга 2 Услуга 2 Услуга 2</td>
-			      <td><del>2000</del></td>
-			      <td>1000</td>
-			    </tr>
-			    <tr>
-			      <td>Услуга 3 Услуга 3 Услуга 3</td>
-			      <td><del>2000</del></td>
-			      <td>1000</td>
-			    </tr>
-			  </tbody>
-			</table>
-  		</div>
-  	</section>
   	<!-- форма -->
   	<section>
   		<div class="container class_form">
   			<h1 class="text-3">Оставь заявку и получи услугу</h1>
   			<div class="row justify-content-center">
-  			<form action="" method="" style="width: 50%;">
+  			<form action="{% url 'thanks_page' %}" method="POST" style="width: 50%;">
+				{% csrf_token %}
 			  <div class="form-group row">
 			    <label for="inputEmail3" class="col-sm-2 col-form-label">Имя</label><br>
-			      <input type="text" class="form-control" name="name">
+				  {{ form.name }}
 			    <div class="">
 			    </div>
 			  </div>
 			  <div class="form-group row">
 			    <label for="inputEmail3" class="col-sm-2 col-form-label">Телефон</label><br>
-			      <input type="text" class="form-control" name="phone">
+				  {{ form.phone }}
 			    <div class="">
 			    </div>
 			  </div>

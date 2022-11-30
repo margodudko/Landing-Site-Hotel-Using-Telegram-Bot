@@ -1,11 +1,13 @@
-{% load static %}
 {% extends 'base.html' %}
+{% load static %}
 
 {% block thanks %}
 	<!-- Спасибо -->
   	<section>
+		<form method="POST" enctype="multi-part/form-data">
+			{% csrf_token %}
   		<div class="container">
-  			<CENTER style = 'margin-top: 35%; margin-bottom: 35%;'><h1>Спасибо за заявку!</h1></CENTER>
+  			<CENTER style = 'margin-top: 35%; margin-bottom: 35%;'><h1>{{ name }}, cпасибо за заявку!</h1></CENTER>
   		</div>
   	</section>
   	<!-- Спасибо -->
