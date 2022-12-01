@@ -1,0 +1,28 @@
+{% extends "admin/base.html" %}
+{% load static %}
+<link rel="stylesheet" href="{% static "admin/css/responsive.css" %}">
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+{% block extrastyle %}
+<style>
+    #branding {
+        width: 90%;
+    }
+
+    #site-name {
+        float: right;
+    }
+</style>
+{% endblock %}
+
+{% block branding %}
+<a class="logo-top" href="#">
+    <img src="{% static 'img/logo.png' %}" width="48" height="48" class="d-inline-block align-top" alt="">
+    Landing Project
+</a>
+
+
+<h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

@@ -30,3 +30,5 @@ def thanks_page(request):
     element.save()
     sendTelegram(tg_name=name, tg_phone=phone)
     return render(request, 'thanks.html', {'name': name, })
+
+

@@ -4,11 +4,15 @@
 {% block thanks %}
 	<!-- Спасибо -->
   	<section>
-		<form method="POST" enctype="multi-part/form-data">
-			{% csrf_token %}
+		{% if name %}
   		<div class="container">
   			<CENTER style = 'margin-top: 35%; margin-bottom: 35%;'><h1>{{ name }}, cпасибо за заявку!</h1></CENTER>
   		</div>
+		{% else %}
+		<div class="container">
+  			<CENTER style = 'margin-top: 35%; margin-bottom: 35%;'><h1>Спасибо страница!</h1></CENTER>
+  		</div>
+		{% endif %}
   	</section>
   	<!-- Спасибо -->
 {% endblock %}
